@@ -3,9 +3,11 @@
     {
       "name": "payment-terms-favorable",
       "object": "Customer",
+      "dataType": "Master Data",
+      "description": "Validates that customers do not have payment terms more favorable than the master data standard, preventing cash flow risk and margin erosion",
       "tables": ["KNA1", "KNB1", "T001", "T052"],
       "criticality": "Medium",
-      "industry": "Finance"
+      "industries": ["Finance", "Manufacturing"]
     }
   ]
 }

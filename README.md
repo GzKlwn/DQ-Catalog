@@ -22,9 +22,11 @@ dq-catalog/
 3. Update `metadata.json` with the rule metadata:
    - `name`: Rule identifier (matches folder and markdown filename)
    - `object`: SAP object (e.g., "Customer", "Order", "Product")
+   - `dataType`: "Master Data" or "Transactional Data"
+   - `description`: Brief business description of the rule
    - `tables`: List of affected SAP tables (e.g., ["KNA1", "KNVV"])
    - `criticality`: High, Medium, or Low
-   - `industry`: Industry classification (e.g., "Manufacturing", "Retail")
+   - `industries`: Array of applicable industries (e.g., ["Manufacturing", "Finance"])
 
 ## Metadata Schema
 
@@ -34,9 +36,11 @@ Each rule entry in `metadata.json` must have:
 {
   "name": "rule-name",
   "object": "Object Name",
+  "dataType": "Master Data|Transactional Data",
+  "description": "Brief business description of what the rule validates",
   "tables": ["TABLE1", "TABLE2"],
   "criticality": "High|Medium|Low",
-  "industry": "Industry Name"
+  "industries": ["Industry1", "Industry2"]
 }
 ```
 
@@ -50,7 +54,7 @@ Each rule entry in `metadata.json` must have:
 
 ### Webapp Integration
 - Webapp clones this repo and reads rules as needed
-- Can filter by metadata (object, criticality, industry, tables)
+- Can filter by metadata (object, dataType, criticality, industries, tables)
 
 ## Git Workflow
 
