@@ -8,6 +8,15 @@
       "tables": ["KNA1", "KNB1", "T001", "T052"],
       "criticality": "Medium",
       "industries": ["Finance", "Manufacturing"]
+    },
+    {
+      "name": "invoice-credit-block",
+      "object": "Customer",
+      "dataType": "Transactional Data",
+      "description": "Ensures invoices are not issued to customers with active credit blocks, preventing financial exposure and bypassed credit controls",
+      "tables": ["KNA1", "VBRK"],
+      "criticality": "Medium",
+      "industries": ["Finance"]
     }
   ]
 }
