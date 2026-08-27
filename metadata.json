@@ -6,6 +6,13 @@
       "tables": ["KNA1", "KNVV"],
       "criticality": "High",
       "industry": "Manufacturing"
+    },
+    {
+      "name": "payment-terms-favorable",
+      "object": "Customer",
+      "tables": ["KNA1", "KNB1", "T001", "T052"],
+      "criticality": "Medium",
+      "industry": "Finance"
     }
   ]
 }
