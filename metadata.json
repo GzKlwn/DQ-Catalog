@@ -1,0 +1,11 @@
+{
+  "rules": [
+    {
+      "name": "customer-deletion",
+      "object": "Customer",
+      "tables": ["KNA1", "KNVV"],
+      "criticality": "High",
+      "industry": "Manufacturing"
+    }
+  ]
+}
