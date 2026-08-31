@@ -1,0 +1,77 @@
+/* Syniti Business-Outcomes design tokens — v1.1 (2026-07-07)
+   Drop-in :root variables. Canonical source: tokens/colors.json · rationale: brand-identity.md
+   Principle: ONE brand family, distinguished by lightness. Violet is the lone signature accent. */
+:root {
+  /* --- the Syniti ramp (ordered brand family) --- */
+  --deep:        #190033;
+  --navy:        #232F63;
+  --blue:        #365EB9;   /* primary / brand-signal blue */
+  --violet:      #5B30EE;   /* signature accent — primary actions only, used sparingly */
+  --violet-soft: #8B6CF3;
+  --slate-blue:  #6F8BD9;
+  --light-blue:  #83AFF8;
+  --lavender:    #BCAFFF;
+
+  /* --- identity gradient (hero/identity marks ONLY, one per view) --- */
+  --grad-identity: linear-gradient(135deg, #233164 0%, #365FBA 48%, #84B0F9 100%);
+  --grad-logotype: linear-gradient(120deg, #5B30EE, #83AFF8);
+
+  /* --- ink (text on light) --- */
+  --ink:   #20242E;
+  --muted: #6B7492;
+  --slate: #64748B;
+  --dim:   #8FA1C8;
+
+  /* --- light surfaces + glass --- */
+  --canvas: #F6F8FE;
+  --panel:  #F7F9FD;
+  --line:   #E1E8F2;
+  --glass-fill: linear-gradient(152deg, rgba(255,255,255,.82), rgba(255,255,255,.55) 58%, rgba(246,248,254,.62));
+  --glass-hairline: rgba(255,255,255,.90);
+  --glass-blur: blur(26px) saturate(160%);
+  --glass-shadow: 0 10px 34px rgba(35,47,99,.09), 0 2px 8px rgba(35,47,99,.05), inset 0 1px 0 rgba(255,255,255,.95);
+
+  /* --- semantic (functional, separate from accent) --- */
+  --primary:  #365EB9;
+  --accent:   #5B30EE;
+  --good:     #0E9F6E;
+  --warn:     #B45309;
+  --warn-bg:  #FEF3E2;
+  --warn-line:#F5D9A8;
+  --critical: #DC2626;
+
+  /* --- dark canvas (deck / dark hero) --- */
+  --dk-top:  #101736;
+  --dk-navy: #232F63;
+  --dk-deep: #190033;
+  --dk-text: #FFFFFF;
+  --dk-muted:#AEC0E8;
+
+  /* --- radii --- */
+  --r-card: 22px; --r-panel: 16px; --r-control: 11px; --r-chip: 8px; --r-button: 10px;
+
+  /* --- typography (§5 made consumable — tabular-nums is mandatory on figures) --- */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --fw-regular: 400; --fw-medium: 500; --fw-semibold: 600; --fw-bold: 700;
+  --fs-micro: 10px;   /* labels, chips, evidence link */
+  --fs-fine: 11.5px;  /* secondary text, tables */
+  --fs-body: 13px;    /* body */
+  --fs-title: 15px;   /* outcome title */
+  --fs-figure: 30px;  /* the big outcome number */
+  --lh-tight: 1.25; --lh-snug: 1.3; --lh-normal: 1.45; --lh-relaxed: 1.55;
+  --ls-figure: -.01em; --ls-caps: .04em;
+  --num-tabular: tabular-nums;   /* set font-variant-numeric:var(--num-tabular) on every figure */
+
+  /* --- spacing (4px grid) --- */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 20px;
+  --sp-6: 24px; --sp-8: 32px; --sp-10: 40px; --sp-12: 48px;
+
+  /* --- motion (verbatim from the app's expand/hover interactions) --- */
+  --dur-fast: 150ms; --dur-base: 200ms; --dur-expand: 240ms;
+  --ease-standard: ease; --ease-emphasized: cubic-bezier(.2,.7,.2,1);
+  --hover-lift: -2px;
+
+  /* --- elevation (navy-tinted only — grey breaks the Syniti glass feel) --- */
+  --shadow-glass:  0 10px 34px rgba(35,47,99,.09), 0 2px 8px rgba(35,47,99,.05), inset 0 1px 0 rgba(255,255,255,.95);
+  --shadow-raised: 0 16px 44px rgba(35,47,99,.13), 0 4px 12px rgba(35,47,99,.07), inset 0 1px 0 rgba(255,255,255,.95);
+}

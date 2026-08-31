@@ -5,18 +5,57 @@
       "object": "Customer",
       "dataType": "Master Data",
       "description": "Validates that customers do not have payment terms more favorable than the master data standard, preventing cash flow risk and margin erosion",
-      "tables": ["KNA1", "KNB1", "T001", "T052"],
+      "tables": [
+        "KNA1",
+        "KNB1",
+        "T001",
+        "T052"
+      ],
       "criticality": "Medium",
-      "industries": ["Finance", "Manufacturing"]
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "domain": "Customer Master",
+      "fields": [
+        "zSourceSystemID",
+        "zDomainSegment",
+        "KUNNR",
+        "NAME1",
+        "BUKRS",
+        "ZTERM",
+        "BUTXT",
+        "ZBD1T"
+      ]
     },
     {
       "name": "invoice-credit-block",
       "object": "Customer",
       "dataType": "Transactional Data",
       "description": "Ensures invoices are not issued to customers with active credit blocks, preventing financial exposure and bypassed credit controls",
-      "tables": ["KNA1", "VBRK"],
+      "tables": [
+        "KNA1",
+        "VBRK"
+      ],
       "criticality": "Medium",
-      "industries": ["Finance"]
+      "industries": [
+        "Finance"
+      ],
+      "domain": "Customer Master",
+      "fields": [
+        "zSourceSystemID",
+        "zDomainSegment",
+        "KUNNR",
+        "NAME1",
+        "VBELN",
+        "FKART",
+        "FAKSD",
+        "VKORG",
+        "BUKRS",
+        "NETWR",
+        "WAERK",
+        "FKDAT"
+      ]
     }
   ]
 }

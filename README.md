@@ -27,6 +27,11 @@ dq-catalog/
    - `tables`: List of affected SAP tables (e.g., ["KNA1", "KNVV"])
    - `criticality`: High, Medium, or Low
    - `industries`: Array of applicable industries (e.g., ["Manufacturing", "Finance"])
+   - `domain`: Data Domain from the rule's `## Rule Header` table (e.g., "Customer Master")
+   - `fields`: List of individual `TABLE.FIELD` codes referenced across the rule's Output Fields tables (e.g., ["KUNNR", "ZTERM"])
+
+Or skip steps 1–3 and use the **webapp** (below) — it parses `domain`, `dataType`,
+`criticality`, `tables`, and `fields` straight out of an uploaded `.md` for you.
 
 ## Metadata Schema
 
@@ -40,9 +45,25 @@ Each rule entry in `metadata.json` must have:
   "description": "Brief business description of what the rule validates",
   "tables": ["TABLE1", "TABLE2"],
   "criticality": "High|Medium|Low",
-  "industries": ["Industry1", "Industry2"]
+  "industries": ["Industry1", "Industry2"],
+  "domain": "Data Domain, e.g. Customer Master",
+  "fields": ["FIELD1", "FIELD2"]
 }
 ```
+
+## Webapp
+
+`webapp/` is a local, zero-install browser/filter/download/upload tool for this
+catalog — see [`webapp/README.md`](webapp/README.md). Run `python webapp/app.py`
+and open `http://127.0.0.1:8787` to:
+
+- Browse and filter rules by object, table, field, industry, and domain
+- Download a rule with `{SOURCE_SYSTEM}` / `{SOURCE_SYSTEM_ID}` substituted for a
+  source system ID you provide
+- See a summary dashboard of rule counts/distributions, click-through into the
+  filtered catalog view
+- Upload one or more rule `.md` files, review the auto-parsed metadata, and push
+  them to this catalog as a PR
 
 ## Usage
 
@@ -51,10 +72,6 @@ Each rule entry in `metadata.json` must have:
 - When a user enters a rule name, Studio checks if it matches a catalog rule
 - If matched: auto-populate from the markdown
 - If not matched: derive and enhance as normal
-
-### Webapp Integration
-- Webapp clones this repo and reads rules as needed
-- Can filter by metadata (object, dataType, criticality, industries, tables)
 
 ## Git Workflow
 

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DQ Catalog</title>
+<link rel="stylesheet" href="/static/vendor/tokens.css">
+<link rel="stylesheet" href="/static/vendor/patterns.css">
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="app-header">
+    <span class="icon-slot" data-icon="Rule-Management"></span>
+    <div>
+      <h1>DQ Catalog</h1>
+      <div class="sub">Browse, filter, adapt, and contribute DQ rules</div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-view="catalog">Catalog</button>
+    <button class="tab" data-view="summary">Summary</button>
+    <button class="tab" data-view="upload">Upload</button>
+  </nav>
+
+  <!-- ============================================================ CATALOG -->
+  <section id="view-catalog" class="view active">
+    <div class="filter-bar">
+      <div class="search-row card">
+        <span class="icon-slot" data-icon="Search"></span>
+        <input id="search-input" type="text" placeholder="Search rule name or description…">
+      </div>
+      <div id="active-filters" class="active-filters"></div>
+      <div id="facet-groups" class="facet-groups"></div>
+    </div>
+    <div id="selection-bar" class="selection-bar"></div>
+    <div id="rule-grid" class="rule-grid"></div>
+  </section>
+
+  <!-- ============================================================ SUMMARY -->
+  <section id="view-summary" class="view">
+    <div class="stat-row">
+      <div class="card stat-tile">
+        <div class="st-label">Total rules</div>
+        <div class="st-value" id="stat-total">–</div>
+      </div>
+      <div class="card stat-tile">
+        <div class="st-label">Objects covered</div>
+        <div class="st-value" id="stat-objects">–</div>
+      </div>
+      <div class="card stat-tile">
+        <div class="st-label">Tables referenced</div>
+        <div class="st-value" id="stat-tables">–</div>
+      </div>
+    </div>
+    <div class="dist-grid">
+      <div class="card dist-card">
+        <h3><span class="icon-slot" data-icon="Database-Table"></span>Rules per object</h3>
+        <div id="dist-object" class="bar-list"></div>
+      </div>
+      <div class="card dist-card">
+        <h3><span class="icon-slot" data-icon="Database-Table"></span>Rules per table</h3>
+        <div id="dist-table" class="bar-list"></div>
+      </div>
+      <div class="card dist-card">
+        <h3><span class="icon-slot" data-icon="Pie-Chart"></span>Rules per domain</h3>
+        <div id="dist-domain" class="bar-list"></div>
+      </div>
+      <div class="card dist-card">
+        <h3><span class="icon-slot" data-icon="Finance-Chart"></span>Rules per criticality</h3>
+        <div id="dist-criticality" class="bar-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= UPLOAD -->
+  <section id="view-upload" class="view">
+    <div id="dropzone" class="dropzone card">
+      <span class="icon-slot" data-icon="Upload"></span>
+      <p><strong>Drop rule markdown files here</strong> or click to choose — one or many.</p>
+      <input id="file-input" type="file" accept=".md" multiple>
+    </div>
+    <div id="review-list" class="review-list"></div>
+    <div id="upload-actions" class="upload-actions" style="display:none">
+      <button id="btn-cancel-upload" class="btn btn-secondary">Cancel</button>
+      <button id="btn-push" class="btn btn-primary">
+        <span class="icon-slot" data-icon="Upload"></span>Push to Catalog
+      </button>
+    </div>
+    <div id="upload-result"></div>
+  </section>
+
+</div>
+
+<!-- ============================================================= DETAIL MODAL -->
+<div id="modal-overlay" class="modal-overlay">
+  <div class="modal-panel card">
+    <button id="modal-close" class="modal-close"><span class="icon-slot" data-icon="Close"></span></button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script type="module" src="/static/app.js"></script>
+</body>
+</html>
