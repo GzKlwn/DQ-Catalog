@@ -56,6 +56,30 @@
         "WAERK",
         "FKDAT"
       ]
+    },
+    {
+      "name": "dq-0011-boms-must-not-include-their-own-finished-assembly-as-component",
+      "object": "",
+      "dataType": "Master Data",
+      "description": "",
+      "tables": [
+        "STKO",
+        "STPO"
+      ],
+      "fields": [
+        "zSourceSystemID",
+        "STLTY",
+        "STLNR",
+        "STPOZ",
+        "IDNRK",
+        "MENGE",
+        "MEINS"
+      ],
+      "criticality": "Critical",
+      "industries": [
+        "ACE"
+      ],
+      "domain": "Bill of Material"
     }
   ]
 }
