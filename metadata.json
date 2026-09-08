@@ -1,61 +1,2117 @@
 {
   "rules": [
     {
-      "name": "payment-terms-favorable",
-      "object": "Customer",
+      "name": "ACE_DQ_0001_BomsMustNotIncludeTheirOwnFinishedAssemblyAsAComponent",
+      "domain": "Bill of Materials",
+      "tables": [
+        "MAST",
+        "STKO",
+        "STPO"
+      ],
+      "description": "Validates that boms  not include their own finished assembly as a component.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from MAST that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in MAST, evaluates the defined error conditions: boms must not include their own finished assembly as a component.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0002_BusinessAFieldAddressesMustIncludeACityWhenOtherMailingDetai",
+      "domain": "Business Partner Master",
+      "tables": [
+        "BUT020",
+        "ADRC"
+      ],
+      "description": "Validates that business a field addresses  include a city when other mailing details are present.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
       "dataType": "Master Data",
-      "description": "Validates that customers do not have payment terms more favorable than the master data standard, preventing cash flow risk and margin erosion",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from BUT020 that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in BUT020, evaluates the defined error conditions: business a field addresses must include a city when other mailing details are present.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0003_CustomerBusinessAFieldMustNotHaveALastChangeDateEarlierThanI",
+      "domain": "Customer Master",
+      "tables": [
+        "KNA1",
+        "KNVV"
+      ],
+      "description": "Validates that customer business a field  not have a last change date earlier than its creation date.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from KNA1 that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in KNA1, evaluates the defined error conditions: customer business a field must not have a last change date earlier than its creation date.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0004_CustomerBusinessPartnersMustHaveAtLeastOneAssignedBusinessRo",
+      "domain": "Business Partner Master",
+      "tables": [
+        "BUT020",
+        "ADRC"
+      ],
+      "description": "Validates that customer business partners  have at least one assigned business role.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from BUT020 that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in BUT020, evaluates the defined error conditions: customer business partners must have at least one assigned business role.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0005_CustomerBusinessPartnersWithCompanycodeDataMustHaveAReconcil",
+      "domain": "Business Partner Master",
+      "tables": [
+        "BUT020",
+        "ADRC"
+      ],
+      "description": "Validates that customer business partners with company-code data  have a reconciliation account.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from BUT020 that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in BUT020, evaluates the defined error conditions: customer business partners with company-code data must have a reconciliation account.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0006_SalesenabledCustomerBusinessPartnersMustHaveShippingConditio",
+      "domain": "Business Partner Master",
+      "tables": [
+        "BUT020",
+        "ADRC"
+      ],
+      "description": "Validates that sales-enabled customer business partners  have shipping conditions maintained.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from BUT020 that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in BUT020, evaluates the defined error conditions: sales-enabled customer business partners must have shipping conditions maintained.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0007_VatliableCustomerBusinessPartnersMustHaveATaxNumber",
+      "domain": "Business Partner Master",
+      "tables": [
+        "BUT020",
+        "ADRC"
+      ],
+      "description": "Validates that vat-liable customer business partners  have a tax number.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from BUT020 that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in BUT020, evaluates the defined error conditions: vat-liable customer business partners must have a tax number.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0008_VendorBusinessPartnersMustHaveAReconciliationAccountWhenAssi",
+      "domain": "Business Partner Master",
+      "tables": [
+        "BUT020",
+        "ADRC"
+      ],
+      "description": "Validates that vendor business partners  have a reconciliation account when assigned to a company code.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from BUT020 that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in BUT020, evaluates the defined error conditions: vendor business partners must have a reconciliation account when assigned to a company code.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0009_ReconciliationAccountsMustSupportLineitemVisibility",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that reconciliation accounts  support line-item visibility.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: reconciliation accounts must support line-item visibility.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0010_HierarchyGroupsMustNotContainOverlappingMemberRanges",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that hierarchy groups  not contain overlapping member ranges.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: hierarchy groups must not contain overlapping member ranges.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0011_HierarchyGroupsMustNotIncludeSubordinateGroupsFromADifferent",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that hierarchy groups  not include subordinate groups from a different controlling area.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: hierarchy groups must not include subordinate groups from a different controlling area.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0012_EquipmentMustNotHaveALastChangeTimestampEarlierThanItsCreati",
+      "domain": "Equipment Master",
+      "tables": [
+        "EQUI",
+        "EQKT"
+      ],
+      "description": "Validates that equipment  not have a last change timestamp earlier than its creation date.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from EQUI that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in EQUI, evaluates the defined error conditions: equipment must not have a last change timestamp earlier than its creation date.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0013_EquipmentMustNotHaveAnAcquisitionDateLaterThanItsStartupDate",
+      "domain": "Equipment Master",
+      "tables": [
+        "EQUI",
+        "EQKT"
+      ],
+      "description": "Validates that equipment  not have an acquisition date later than its start-up date.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from EQUI that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in EQUI, evaluates the defined error conditions: equipment must not have an acquisition date later than its start-up date.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0014_EquipmentMustNotHaveAUsageSegmentDatedBeforeItIsCreated",
+      "domain": "Equipment Master",
+      "tables": [
+        "EQUI",
+        "EQKT"
+      ],
+      "description": "Validates that equipment  not have a usage segment dated before it is created.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from EQUI that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in EQUI, evaluates the defined error conditions: equipment must not have a usage segment dated before it is created.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0015_EquipmentMustNotHaveALastChangeTimestampEarlierThanItsCreati",
+      "domain": "Equipment Master",
+      "tables": [
+        "EQUI",
+        "EQKT"
+      ],
+      "description": "Validates that equipment  not have a last change timestamp earlier than its creation date.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from EQUI that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in EQUI, evaluates the defined error conditions: equipment must not have a last change timestamp earlier than its creation date.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0016_EquipmentMustNotHaveAnEndofuseDateEarlierThanItsStartupDate",
+      "domain": "Equipment Master",
+      "tables": [
+        "EQUI",
+        "EQKT"
+      ],
+      "description": "Validates that equipment  not have an end-of-use date earlier than its start-up date.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from EQUI that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in EQUI, evaluates the defined error conditions: equipment must not have an end-of-use date earlier than its start-up date.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0017_EquipmentMustNotHaveAValidityPeriodThatStartsBeforeItWasCrea",
+      "domain": "Equipment Master",
+      "tables": [
+        "EQUI",
+        "EQKT"
+      ],
+      "description": "Validates that equipment  not have a validity period that starts before it was created.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from EQUI that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in EQUI, evaluates the defined error conditions: equipment must not have a validity period that starts before it was created.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0018_EquipmentMustNotHaveOverlappingValidityPeriodsForTheSameAsse",
+      "domain": "Equipment Master",
+      "tables": [
+        "EQUI",
+        "EQKT"
+      ],
+      "description": "Validates that equipment  not have overlapping validity periods for the same asset.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from EQUI that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in EQUI, evaluates the defined error conditions: equipment must not have overlapping validity periods for the same asset.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0019_StorageBinsMustNotBeMarkedEmptyWhenTheyContainStockOrStorage",
+      "domain": "Storage Bins",
+      "tables": [
+        "LAGP"
+      ],
+      "description": "Validates that storage bins  not be marked empty when they contain stock or storage units.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from LAGP that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in LAGP, evaluates the defined error conditions: storage bins must not be marked empty when they contain stock or storage units.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0020_FunctionalLocationsMustHaveAControllingAreaWhenACompanyCodeI",
+      "domain": "Internal Orders",
+      "tables": [
+        "AUFM",
+        "AUFK"
+      ],
+      "description": "Validates that functional locations  have a controlling area when a company code is assigned.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AUFM that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AUFM, evaluates the defined error conditions: functional locations must have a controlling area when a company code is assigned.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0021_FunctionalLocationsWithAMaintenancePlantMustAlsoHaveACostCen",
+      "domain": "Costing",
+      "tables": [
+        "MKAL",
+        "CRCA"
+      ],
+      "description": "Validates that functional locations with a maintenance plant  also have a cost center.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Finance"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from MKAL that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in MKAL, evaluates the defined error conditions: functional locations with a maintenance plant must also have a cost center.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0022_FunctionalLocationsWithAPlanningPlantMustAlsoHaveAMaintenanc",
+      "domain": "Internal Orders",
+      "tables": [
+        "AUFM",
+        "AUFK"
+      ],
+      "description": "Validates that functional locations with a planning plant  also have a maintenance plant.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AUFM that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AUFM, evaluates the defined error conditions: functional locations with a planning plant must also have a maintenance plant.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0023_SubordinateFunctionalLocationsMustHaveASuperiorLocationAssig",
+      "domain": "Internal Orders",
+      "tables": [
+        "AUFM",
+        "AUFK"
+      ],
+      "description": "Validates that subordinate functional locations  have a superior location assigned.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AUFM that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AUFM, evaluates the defined error conditions: subordinate functional locations must have a superior location assigned.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0024_InspectionAssignmentsThatRequireATaskListMustHaveAQualityIns",
+      "domain": "Material Master",
+      "tables": [
+        "MARA",
+        "MARC"
+      ],
+      "description": "Validates that inspection assignments that require a task list  have a quality inspection plan assigned for the same material and plant.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from MARA that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in MARA, evaluates the defined error conditions: inspection assignments that require a task list must have a quality inspection plan assigned for the same material and plant.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0025_TasklistbasedInspectionAssignmentsMustHaveAtLeastOneInspecti",
+      "domain": "Inspection Lots",
+      "tables": [
+        "QAMR",
+        "QALS"
+      ],
+      "description": "Validates that task-list-based inspection assignments  have at least one inspection characteristic in the assigned quality plan.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from QAMR that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in QAMR, evaluates the defined error conditions: task-list-based inspection assignments must have at least one inspection characteristic in the assigned quality plan.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0026_TasklistbasedInspectionAssignmentsMustHaveAtLeastOneOperatio",
+      "domain": "Inspection Lots",
+      "tables": [
+        "QAMR",
+        "QALS"
+      ],
+      "description": "Validates that task-list-based inspection assignments  have at least one operation in the assigned quality plan.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from QAMR that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in QAMR, evaluates the defined error conditions: task-list-based inspection assignments must have at least one operation in the assigned quality plan.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0027_InternalOrdersMustHaveABusinessDescription",
+      "domain": "Internal Orders",
+      "tables": [
+        "AUFM",
+        "AUFK"
+      ],
+      "description": "Validates that internal orders  have a business description.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AUFM that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AUFM, evaluates the defined error conditions: internal orders must have a business description.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0028_InternalOrdersMustHaveAProfitCenterAssignmentWhenAResponsibl",
+      "domain": "Internal Orders",
+      "tables": [
+        "AUFM",
+        "AUFK"
+      ],
+      "description": "Validates that internal orders  have a profit center assignment when a responsible cost center is assigned.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AUFM that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AUFM, evaluates the defined error conditions: internal orders must have a profit center assignment when a responsible cost center is assigned.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0029_InternalOrdersMustReferenceAnExistingResponsibleCostCenterWh",
+      "domain": "Internal Orders",
+      "tables": [
+        "AUFM",
+        "AUFK"
+      ],
+      "description": "Validates that internal orders  reference an existing responsible cost center when one is assigned.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AUFM that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AUFM, evaluates the defined error conditions: internal orders must reference an existing responsible cost center when one is assigned.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0030_InternalOrdersWithAResponsibleCostCenterMustHaveABasicSettle",
+      "domain": "Internal Orders",
+      "tables": [
+        "AUFM",
+        "AUFK"
+      ],
+      "description": "Validates that internal orders with a responsible cost center  have a basic settlement receiver assigned.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AUFM that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AUFM, evaluates the defined error conditions: internal orders with a responsible cost center must have a basic settlement receiver assigned.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0031_ReleasedInternalOrdersMustHaveAProfitCenterThatMatchesTheAss",
+      "domain": "Internal Orders",
+      "tables": [
+        "AUFM",
+        "AUFK"
+      ],
+      "description": "Validates that released internal orders  have a profit center that matches the assigned responsible cost center.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AUFM that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AUFM, evaluates the defined error conditions: released internal orders must have a profit center that matches the assigned responsible cost center.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0032_ReleasedInternalOrdersMustHaveAResponsibleCostCenterAssigned",
+      "domain": "Internal Orders",
+      "tables": [
+        "AUFM",
+        "AUFK"
+      ],
+      "description": "Validates that released internal orders  have a responsible cost center assigned.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AUFM that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AUFM, evaluates the defined error conditions: released internal orders must have a responsible cost center assigned.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0033_PhysicalInventoryDocumentsMustNotBePostedBeforeTheRecordedCo",
+      "domain": "Physical Inventory",
+      "tables": [
+        "MKPF",
+        "MSEG"
+      ],
+      "description": "Validates that physical inventory documents  not be posted before the recorded count date.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from MKPF that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in MKPF, evaluates the defined error conditions: physical inventory documents must not be posted before the recorded count date.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0034_MaintenanceComponentDemandMustNotRemainOpenAfterTheRelatedWo",
+      "domain": "Internal Orders",
+      "tables": [
+        "AUFM",
+        "AUFK"
+      ],
+      "description": "Validates that maintenance component demand  not remain open after the related work has reached technical completion.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AUFM that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AUFM, evaluates the defined error conditions: maintenance component demand must not remain open after the related work has reached technical completion.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0035_MaintenancePlansMustHaveAMaintainedStartDateWhenTheyHaveActi",
+      "domain": "Internal Orders",
+      "tables": [
+        "AUFM",
+        "AUFK"
+      ],
+      "description": "Validates that maintenance plans  have a maintained start date when they have active scheduling activity.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AUFM that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AUFM, evaluates the defined error conditions: maintenance plans must have a maintained start date when they have active scheduling activity.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0036_MaintenancePlansMustHaveAMaintenanceStrategyAssignedBeforeSc",
+      "domain": "Internal Orders",
+      "tables": [
+        "AUFM",
+        "AUFK"
+      ],
+      "description": "Validates that maintenance plans  have a maintenance strategy assigned before scheduling activity occurs.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AUFM that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AUFM, evaluates the defined error conditions: maintenance plans must have a maintenance strategy assigned before scheduling activity occurs.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0037_MaintenancePlansMustNotHaveAnOutstandingMaintenanceCallPastI",
+      "domain": "Internal Orders",
+      "tables": [
+        "AUFM",
+        "AUFK"
+      ],
+      "description": "Validates that maintenance plans  not have an outstanding maintenance call past its planned date.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AUFM that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AUFM, evaluates the defined error conditions: maintenance plans must not have an outstanding maintenance call past its planned date.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0038_ProductionRecipeOperationsMustBelongToACurrentlyValidRecipeH",
+      "domain": "Production Planning",
+      "tables": [
+        "AFKO",
+        "PLKO"
+      ],
+      "description": "Validates that production recipe operations  belong to a currently valid recipe header.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AFKO that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AFKO, evaluates the defined error conditions: production recipe operations must belong to a currently valid recipe header.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0039_MaterialsMustNotHaveNetWeightGreaterThanGrossWeight",
+      "domain": "Material Master",
+      "tables": [
+        "MARA",
+        "MARC"
+      ],
+      "description": "Validates that materials  not have net weight greater than gross weight.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from MARA that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in MARA, evaluates the defined error conditions: materials must not have net weight greater than gross weight.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0040_CounterOverflowReadingMustExceedTheMaximumTotalCounterReadin",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that counter overflow reading  exceed the maximum total counter reading.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: counter overflow reading must exceed the maximum total counter reading.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0041_CountersMustHaveAMaximumTotalReadingConfigured",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that counters  have a maximum total reading configured.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: counters must have a maximum total reading configured.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0042_MeasuringPointsAndCountersMustHaveAnUpperMeasurementLimitGre",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that measuring points and counters  have an upper measurement limit greater than or equal to the lower measurement limit.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: measuring points and counters must have an upper measurement limit greater than or equal to the lower measurement limit.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0043_MeasuringPointsAndCountersMustReferenceAValidMeasurementChar",
+      "domain": "Characteristics",
+      "tables": [
+        "CABN"
+      ],
+      "description": "Validates that measuring points and counters  reference a valid measurement characteristic.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from CABN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in CABN, evaluates the defined error conditions: measuring points and counters must reference a valid measurement characteristic.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0044_OpenPayableDocumentsMustNotHaveADueDateEarlierThanThePosting",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that open payable documents  not have a due date earlier than the posting date.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: open payable documents must not have a due date earlier than the posting date.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0045_OpenReceivableDocumentsMustNotHaveADueDateEarlierThanTheOrig",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that open receivable documents  not have a due date earlier than the original document date.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: open receivable documents must not have a due date earlier than the original document date.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0046_InspectionLotsMustBeMarkedAsDecidedWhenAUsageDecisionHasBeen",
+      "domain": "Inspection Lots",
+      "tables": [
+        "QAMR",
+        "QALS"
+      ],
+      "description": "Validates that inspection lots  be marked as decided when a usage decision has been recorded.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from QAMR that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in QAMR, evaluates the defined error conditions: inspection lots must be marked as decided when a usage decision has been recorded.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0047_InspectionLotsMustHaveAnInspectedMaterialAssigned",
+      "domain": "Material Master",
+      "tables": [
+        "MARA",
+        "MARC"
+      ],
+      "description": "Validates that inspection lots  have an inspected material assigned.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from MARA that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in MARA, evaluates the defined error conditions: inspection lots must have an inspected material assigned.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0048_OpenInspectionLotsMustHaveABatchNumberWhenBatchManagementIsR",
+      "domain": "Inspection Lots",
+      "tables": [
+        "QAMR",
+        "QALS"
+      ],
+      "description": "Validates that open inspection lots  have a batch number when batch management is required.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from QAMR that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in QAMR, evaluates the defined error conditions: open inspection lots must have a batch number when batch management is required.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0049_OpenInspectionLotsMustHaveAnAssignedInspectionPlanWhenInspec",
+      "domain": "Inspection Lots",
+      "tables": [
+        "QAMR",
+        "QALS"
+      ],
+      "description": "Validates that open inspection lots  have an assigned inspection plan when inspection planning is required.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from QAMR that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in QAMR, evaluates the defined error conditions: open inspection lots must have an assigned inspection plan when inspection planning is required.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0050_RecordedUsageDecisionsMustIdentifyThePersonWhoMadeTheDecisio",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that recorded usage decisions  identify the person who made the decision.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: recorded usage decisions must identify the person who made the decision.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0051_RecordedUsageDecisionsMustIncludeADispositionCode",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that recorded usage decisions  include a disposition code.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: recorded usage decisions must include a disposition code.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0052_OpenPurchaseOrdersMustHaveAPositivePricingUnitWhenOrderedQua",
+      "domain": "Purchase Orders",
+      "tables": [
+        "EKKO",
+        "EKPO"
+      ],
+      "description": "Validates that open purchase orders  have a positive pricing unit when ordered quantities are present.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from EKKO that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in EKKO, evaluates the defined error conditions: open purchase orders must have a positive pricing unit when ordered quantities are present.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0053_OpenPurchaseOrdersMustNotBeMarkedAsDeliveryCompleteWhenRecei",
+      "domain": "Delivery Headers",
+      "tables": [
+        "LIKP",
+        "LIPS"
+      ],
+      "description": "Validates that open purchase orders  not be marked as delivery complete when receipt quantity is still outstanding.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from LIKP that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in LIKP, evaluates the defined error conditions: open purchase orders must not be marked as delivery complete when receipt quantity is still outstanding.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0054_OpenPurchaseRequisitionItemsMustNotHaveARequestedDeliveryDat",
+      "domain": "Delivery Headers",
+      "tables": [
+        "LIKP",
+        "LIPS"
+      ],
+      "description": "Validates that open purchase requisition items  not have a requested delivery date earlier than the requisition date.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from LIKP that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in LIKP, evaluates the defined error conditions: open purchase requisition items must not have a requested delivery date earlier than the requisition date.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0055_OpenPurchaseRequisitionItemsMustNotShowOrderedQuantityGreate",
+      "domain": "Purchase Requisitions",
+      "tables": [
+        "EBAN"
+      ],
+      "description": "Validates that open purchase requisition items  not show ordered quantity greater than requested quantity.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from EBAN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in EBAN, evaluates the defined error conditions: open purchase requisition items must not show ordered quantity greater than requested quantity.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0056_OpenDeliveryCommitmentsMustHaveAConfirmedQuantityForOpenSale",
+      "domain": "Sales Orders",
+      "tables": [
+        "VBAK",
+        "VBAP"
+      ],
+      "description": "Validates that open delivery commitments  have a confirmed quantity for open sales orders.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from VBAK that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in VBAK, evaluates the defined error conditions: open delivery commitments must have a confirmed quantity for open sales orders.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0057_OpenSalesOrdersAwaitingBillingMustNotContainBillableItemsWit",
+      "domain": "Sales Orders",
+      "tables": [
+        "VBAK",
+        "VBAP"
+      ],
+      "description": "Validates that open sales orders awaiting billing  not contain billable items with invalid pricing.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from VBAK that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in VBAK, evaluates the defined error conditions: open sales orders awaiting billing must not contain billable items with invalid pricing.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0058_OpenSalesOrdersAwaitingBillingMustNotHaveIncompleteBillingDa",
+      "domain": "Sales Orders",
+      "tables": [
+        "VBAK",
+        "VBAP"
+      ],
+      "description": "Validates that open sales orders awaiting billing  not have incomplete billing data.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from VBAK that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in VBAK, evaluates the defined error conditions: open sales orders awaiting billing must not have incomplete billing data.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0059_OpenSalesOrdersWithItemsStillAwaitingDeliveryMustHaveAFulfil",
+      "domain": "Sales Orders",
+      "tables": [
+        "VBAK",
+        "VBAP"
+      ],
+      "description": "Validates that open sales orders with items still awaiting delivery  have a fulfillment plant assigned.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from VBAK that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in VBAK, evaluates the defined error conditions: open sales orders with items still awaiting delivery must have a fulfillment plant assigned.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0060_SalesOrdersMustNotBeMarkedAsDeliverycompleteWhenAnyOrderLine",
+      "domain": "Sales Orders",
+      "tables": [
+        "VBAK",
+        "VBAP"
+      ],
+      "description": "Validates that sales orders  not be marked as delivery-complete when any order line still requires delivery.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from VBAK that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in VBAK, evaluates the defined error conditions: sales orders must not be marked as delivery-complete when any order line still requires delivery.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0061_PricingRecordsMustHaveAtLeastOneUsableConditionItem",
+      "domain": "Pricing Records",
+      "tables": [
+        "KONV"
+      ],
+      "description": "Validates that pricing records  have at least one usable condition item.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Finance"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from KONV that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in KONV, evaluates the defined error conditions: pricing records must have at least one usable condition item.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0062_PricingRecordsMustIncludeACurrencyOrPercentageUnitWhenTheyCa",
+      "domain": "Pricing Records",
+      "tables": [
+        "KONV"
+      ],
+      "description": "Validates that pricing records  include a currency or percentage unit when they carry a non-zero condition amount.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Finance"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from KONV that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in KONV, evaluates the defined error conditions: pricing records must include a currency or percentage unit when they carry a non-zero condition amount.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0063_PricingRecordsMustNotContainANonzeroConditionAmountWithAZero",
+      "domain": "Pricing Records",
+      "tables": [
+        "KONV"
+      ],
+      "description": "Validates that pricing records  not contain a non-zero condition amount with a zero pricing unit.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Finance"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from KONV that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in KONV, evaluates the defined error conditions: pricing records must not contain a non-zero condition amount with a zero pricing unit.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0064_PricingRecordsMustNotHaveBlankValidityDates",
+      "domain": "Pricing Records",
+      "tables": [
+        "KONV"
+      ],
+      "description": "Validates that pricing records  not have blank validity dates.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Finance"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from KONV that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in KONV, evaluates the defined error conditions: pricing records must not have blank validity dates.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0065_ProductionBomItemsMustHaveAPositiveRequiredQuantityWhenAComp",
+      "domain": "Bill of Materials",
+      "tables": [
+        "MAST",
+        "STKO",
+        "STPO"
+      ],
+      "description": "Validates that production bom items  have a positive required quantity when a component is specified.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from MAST that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in MAST, evaluates the defined error conditions: production bom items must have a positive required quantity when a component is specified.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0066_PlannedOrdersMustNotUseAProductionVersionAboveItsMaintainedM",
+      "domain": "Production Planning",
+      "tables": [
+        "AFKO",
+        "PLKO"
+      ],
+      "description": "Validates that planned orders  not use a production version above its maintained maximum lot size.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AFKO that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AFKO, evaluates the defined error conditions: planned orders must not use a production version above its maintained maximum lot size.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0067_ProductionVersionsUsedByPlannedOrdersMustIncludeACompleteTas",
+      "domain": "Routing",
+      "tables": [
+        "ROUT"
+      ],
+      "description": "Validates that production versions used by planned orders  include a complete task list reference.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from ROUT that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in ROUT, evaluates the defined error conditions: production versions used by planned orders must include a complete task list reference.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0068_ReleasedCostEstimatesMustHavePopulatedCostComponentDetail",
+      "domain": "Costing",
+      "tables": [
+        "MKAL",
+        "CRCA"
+      ],
+      "description": "Validates that released cost estimates  have populated cost component detail.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Finance"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from MKAL that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in MKAL, evaluates the defined error conditions: released cost estimates must have populated cost component detail.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0069_ProfitCenterHierarchyNamesMustNotBeReusedAcrossMultipleOrgan",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that profit center hierarchy names  not be reused across multiple organizational scopes.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: profit center hierarchy names must not be reused across multiple organizational scopes.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0070_SubordinateHierarchyReferencesMustResolveToExactlyOneHierarc",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that subordinate hierarchy references  resolve to exactly one hierarchy definition.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: subordinate hierarchy references must resolve to exactly one hierarchy definition.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0071_ProjectOperationsMustBeLinkedToAValidOrderHeader",
+      "domain": "Project Master",
+      "tables": [
+        "PROJ",
+        "PRPS"
+      ],
+      "description": "Validates that project operations  be linked to a valid order header.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from PROJ that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in PROJ, evaluates the defined error conditions: project operations must be linked to a valid order header.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0072_ProjectOperationsMustNotCarryProcurementActivityBeforeOrderR",
+      "domain": "Project Master",
+      "tables": [
+        "PROJ",
+        "PRPS"
+      ],
+      "description": "Validates that project operations  not carry procurement activity before order release.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from PROJ that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in PROJ, evaluates the defined error conditions: project operations must not carry procurement activity before order release.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0073_BudgetcarryingProjectCostRecordsMustReferenceAnExistingWorkB",
+      "domain": "Costing",
+      "tables": [
+        "MKAL",
+        "CRCA"
+      ],
+      "description": "Validates that budget-carrying project cost records  reference an existing work breakdown structure element.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Finance"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from MKAL that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in MKAL, evaluates the defined error conditions: budget-carrying project cost records must reference an existing work breakdown structure element.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0074_ProjectBudgetRecordsMustNotReferenceWorkBreakdownElementsWho",
+      "domain": "Project Master",
+      "tables": [
+        "PROJ",
+        "PRPS"
+      ],
+      "description": "Validates that project budget records  not reference work breakdown elements whose last recorded change predates their creation.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from PROJ that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in PROJ, evaluates the defined error conditions: project budget records must not reference work breakdown elements whose last recorded change predates their creation.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0075_ProjectBudgetRecordsMustReconcileOverallBudgetAmountsWithThe",
+      "domain": "Project Master",
+      "tables": [
+        "PROJ",
+        "PRPS"
+      ],
+      "description": "Validates that project budget records  reconcile overall budget amounts with the corresponding annual budget amounts.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from PROJ that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in PROJ, evaluates the defined error conditions: project budget records must reconcile overall budget amounts with the corresponding annual budget amounts.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0076_PricingRecordsMustNotUsePlaceholderValidityDates",
+      "domain": "Pricing Records",
+      "tables": [
+        "KONV"
+      ],
+      "description": "Validates that pricing records  not use placeholder validity dates.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Finance"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from KONV that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in KONV, evaluates the defined error conditions: pricing records must not use placeholder validity dates.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0077_VendorPricingRecordsMustHaveANonzeroMaintainedAmountOnUsable",
+      "domain": "Vendor Master",
+      "tables": [
+        "LFA1",
+        "LFB1"
+      ],
+      "description": "Validates that vendor pricing records  have a non-zero maintained amount on usable price lines.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from LFA1 that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in LFA1, evaluates the defined error conditions: vendor pricing records must have a non-zero maintained amount on usable price lines.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0078_VendorPricingRecordsMustHaveAPositivePricingUnitWhenANonzero",
+      "domain": "Vendor Master",
+      "tables": [
+        "LFA1",
+        "LFB1"
+      ],
+      "description": "Validates that vendor pricing records  have a positive pricing unit when a non-zero price is maintained.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from LFA1 that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in LFA1, evaluates the defined error conditions: vendor pricing records must have a positive pricing unit when a non-zero price is maintained.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0079_VendorPricingRecordsMustHaveAtLeastOneUsablePriceLine",
+      "domain": "Vendor Master",
+      "tables": [
+        "LFA1",
+        "LFB1"
+      ],
+      "description": "Validates that vendor pricing records  have at least one usable price line.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from LFA1 that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in LFA1, evaluates the defined error conditions: vendor pricing records must have at least one usable price line.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0080_VendorPricingRecordsMustSpecifyACurrencyOrPercentageUnitWhen",
+      "domain": "Vendor Master",
+      "tables": [
+        "LFA1",
+        "LFB1"
+      ],
+      "description": "Validates that vendor pricing records  specify a currency or percentage unit when a non-zero condition amount is maintained.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from LFA1 that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in LFA1, evaluates the defined error conditions: vendor pricing records must specify a currency or percentage unit when a non-zero condition amount is maintained.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0081_VendorPricingRecordsMustUseTheSamePricingClassificationAcros",
+      "domain": "Vendor Master",
+      "tables": [
+        "LFA1",
+        "LFB1"
+      ],
+      "description": "Validates that vendor pricing records  use the same pricing classification across the header and usable price lines.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from LFA1 that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in LFA1, evaluates the defined error conditions: vendor pricing records must use the same pricing classification across the header and usable price lines.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0082_PurchasingContractsMustHaveAtLeastOneLineWithAPositiveAgreed",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that purchasing contracts  have at least one line with a positive agreed price or target amount.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: purchasing contracts must have at least one line with a positive agreed price or target amount.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0083_PurchasingContractsMustHaveAValidityStartDateOnOrBeforeTheVa",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that purchasing contracts  have a validity start date on or before the validity end date.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: purchasing contracts must have a validity start date on or before the validity end date.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0084_PurchasingContractsMustNotBeUsedAfterTheirValidityEndDate",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that purchasing contracts  not be used after their validity end date.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: purchasing contracts must not be used after their validity end date.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0085_PurchasingInfoRecordsMustHaveACurrentValidityEndDateWhenThey",
+      "domain": "Pricing Records",
+      "tables": [
+        "KONV"
+      ],
+      "description": "Validates that purchasing info records  have a current validity end date when they carry maintained pricing or recent purchasing activity.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Finance"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from KONV that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in KONV, evaluates the defined error conditions: purchasing info records must have a current validity end date when they carry maintained pricing or recent purchasing activity.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0086_PurchasingInfoRecordsMustHaveAPositiveMaintainedPriceWhenThe",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that purchasing info records  have a positive maintained price when they are used for current or recent purchasing.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: purchasing info records must have a positive maintained price when they are used for current or recent purchasing.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0087_InspectionPlanOperationsMustNotContainCharacteristicsWhoseLo",
+      "domain": "Inspection Lots",
+      "tables": [
+        "QAMR",
+        "QALS"
+      ],
+      "description": "Validates that inspection plan operations  not contain characteristics whose lower acceptance limit exceeds the upper acceptance limit.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from QAMR that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in QAMR, evaluates the defined error conditions: inspection plan operations must not contain characteristics whose lower acceptance limit exceeds the upper acceptance limit.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0088_QualityInspectionPlanOperationsMustHaveAtLeastOneInspectionC",
+      "domain": "Inspection Lots",
+      "tables": [
+        "QAMR",
+        "QALS"
+      ],
+      "description": "Validates that quality inspection plan operations  have at least one inspection characteristic.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from QAMR that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in QAMR, evaluates the defined error conditions: quality inspection plan operations must have at least one inspection characteristic.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0089_RoutingOperationsMustBelongToARoutingHeader",
+      "domain": "Routing",
+      "tables": [
+        "ROUT"
+      ],
+      "description": "Validates that routing operations  belong to a routing header.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from ROUT that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in ROUT, evaluates the defined error conditions: routing operations must belong to a routing header.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0090_SalesContractLineCommitmentsMustHaveAPositiveQuantityOrValue",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that sales contract line commitments  have a positive quantity or value when the line is not rejected.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: sales contract line commitments must have a positive quantity or value when the line is not rejected.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0091_SalesContractsMustNotBeFullyRejectedAfterDownstreamFulfillme",
+      "domain": "Billing Documents",
+      "tables": [
+        "VBRK",
+        "VBRP"
+      ],
+      "description": "Validates that sales contracts  not be fully rejected after downstream fulfillment or billing has started.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Finance"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from VBRK that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in VBRK, evaluates the defined error conditions: sales contracts must not be fully rejected after downstream fulfillment or billing has started.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0092_PricingRecordsMustHaveAPositivePricingUnitWhenARateOrAmountI",
+      "domain": "Pricing Records",
+      "tables": [
+        "KONV"
+      ],
+      "description": "Validates that pricing records  have a positive pricing unit when a rate or amount is maintained.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Finance"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from KONV that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in KONV, evaluates the defined error conditions: pricing records must have a positive pricing unit when a rate or amount is maintained.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0093_PricingRecordsMustHaveAtLeastOneActionablePricingItem",
+      "domain": "Pricing Records",
+      "tables": [
+        "KONV"
+      ],
+      "description": "Validates that pricing records  have at least one actionable pricing item.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Finance"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from KONV that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in KONV, evaluates the defined error conditions: pricing records must have at least one actionable pricing item.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0094_SerializedDeliveryRecordsMustNotCarryADifferentTransactionDa",
+      "domain": "Delivery Headers",
+      "tables": [
+        "LIKP",
+        "LIPS"
+      ],
+      "description": "Validates that serialized delivery records  not carry a different transaction date than their linked serial assignments.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from LIKP that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in LIKP, evaluates the defined error conditions: serialized delivery records must not carry a different transaction date than their linked serial assignments.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0095_SerializedDeliveryRecordsMustNotReferenceDifferentProductsAc",
+      "domain": "Equipment Master",
+      "tables": [
+        "EQUI",
+        "EQKT"
+      ],
+      "description": "Validates that serialized delivery records  not reference different products across related serial and equipment assignments.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from EQUI that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in EQUI, evaluates the defined error conditions: serialized delivery records must not reference different products across related serial and equipment assignments.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0096_ShipmentsMustNotHaveALastChangeDateEarlierThanTheirCreationD",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that shipments  not have a last change date earlier than their creation date.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: shipments must not have a last change date earlier than their creation date.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0097_ShipmentsMustNotHaveAPlannedEndEarlierThanTheirPlannedStart",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that shipments  not have a planned end earlier than their planned start.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: shipments must not have a planned end earlier than their planned start.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0098_ShipmentsWithAssignedDeliveriesMustHaveEitherAFieldPlanningC",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that shipments with assigned deliveries  have either a field planning, carrier assignment, or stage planning.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: shipments with assigned deliveries must have either a field planning, carrier assignment, or stage planning.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0099_ShipmentsWithTransportStagesMustHaveADefinedDepartureAndDest",
+      "domain": "Transportation",
+      "tables": [
+        "VTTK"
+      ],
+      "description": "Validates that shipments with transport stages  have a defined departure and destination reference for every stage.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from VTTK that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in VTTK, evaluates the defined error conditions: shipments with transport stages must have a defined departure and destination reference for every stage.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0100_AgreementlinkedSourceApprovalsMustReferenceAnAgreementItemFo",
+      "domain": "Master Data",
+      "tables": [],
+      "description": "Validates that agreement-linked source approvals  reference an agreement item for the same plant.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Finance",
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from UNKNOWN that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in UNKNOWN, evaluates the defined error conditions: agreement-linked source approvals must reference an agreement item for the same plant.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0101_SourceListEntriesMustNotHaveOverlappingValidityPeriodsForThe",
+      "domain": "Material Master",
+      "tables": [
+        "MARA",
+        "MARC"
+      ],
+      "description": "Validates that source list entries  not have overlapping validity periods for the same material, plant, and supplier.",
+      "object": "Master",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Master Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from MARA that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in MARA, evaluates the defined error conditions: source list entries must not have overlapping validity periods for the same material, plant, and supplier.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0102_TaskListsMustIncludeAtLeastOneMaintainedOperation",
+      "domain": "Routing",
+      "tables": [
+        "ROUT"
+      ],
+      "description": "Validates that task lists  include at least one maintained operation.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from ROUT that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in ROUT, evaluates the defined error conditions: task lists must include at least one maintained operation.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0103_FiniteschedulingWorkCentersMustHaveAFactoryCalendarMaintaine",
+      "domain": "Production Planning",
+      "tables": [
+        "AFKO",
+        "PLKO"
+      ],
+      "description": "Validates that finite-scheduling work centers  have a factory calendar maintained.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AFKO that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AFKO, evaluates the defined error conditions: finite-scheduling work centers must have a factory calendar maintained.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0104_FiniteschedulingWorkCentersMustHaveAnAvailablecapacityEndTim",
+      "domain": "Production Planning",
+      "tables": [
+        "AFKO",
+        "PLKO"
+      ],
+      "description": "Validates that finite-scheduling work centers  have an available-capacity end time later than the start time.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AFKO that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AFKO, evaluates the defined error conditions: finite-scheduling work centers must have an available-capacity end time later than the start time.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "ACE_DQ_0105_WorkCentersMustUseTheSameCapacityReferenceAcrossHeaderAndAll",
+      "domain": "Production Planning",
+      "tables": [
+        "AFKO",
+        "PLKO"
+      ],
+      "description": "Validates that work centers  use the same capacity reference across header and allocation records.",
+      "object": "Transactional",
+      "criticality": "High",
+      "industries": [
+        "Manufacturing"
+      ],
+      "dataType": "Transactional Data",
+      "fields": [],
+      "source": "ACE Rules",
+      "fetch": "Retrieves all candidate records from AFKO that meet the scope criteria and filters based on the business rule requirements.",
+      "check": "For each record in AFKO, evaluates the defined error conditions: work centers must use the same capacity reference across header and allocation records.. Flags records that violate the rule requirements.",
+      "return": "Returns all evaluated records with zIsErrorFlag set to 1 for violations, 0 for compliant records. Includes all output fields for root-cause analysis."
+    },
+    {
+      "name": "invoice-credit-block",
+      "tables": [
+        "KNA1",
+        "VBRK"
+      ],
+      "fields": [
+        "KUNNR",
+        "VBELN",
+        "BUKRS"
+      ],
+      "domain": "Billing Documents",
+      "object": "Transactional",
+      "criticality": "Medium",
+      "description": "Ensures invoices are not issued to customers with active credit blocks.",
+      "industries": [
+        "Finance"
+      ],
+      "dataType": "Transactional Data",
+      "source": "ACE Rules",
+      "fetch": "Retrieve billing documents from VBRK/VBRP joined to customer master KNA1 and sales area data KNVV via customer number.",
+      "check": "Mark any record where: <br /> Invoice exists (VBRK.VBELN is not blank) <br /> AND customer has central billing block (KNA1.FAKSD is not blank) OR sales-area billing block (KNVV.FAKSD is not blank)",
+      "return": "Invoices issued to customers with active credit blocks, indicating bypassed credit controls requiring immediate review."
+    },
+    {
+      "name": "payment-terms-favorable",
       "tables": [
         "KNA1",
         "KNB1",
         "T001",
         "T052"
       ],
+      "fields": [
+        "KUNNR",
+        "ZTERM",
+        "BUKRS"
+      ],
+      "domain": "Customer Master",
+      "object": "Master",
       "criticality": "Medium",
+      "description": "Validates that customers do not have payment terms more favorable than the master data standard.",
       "industries": [
         "Finance",
         "Manufacturing"
       ],
-      "domain": "Customer Master",
-      "fields": [
-        "zSourceSystemID",
-        "zDomainSegment",
-        "KUNNR",
-        "NAME1",
-        "BUKRS",
-        "ZTERM",
-        "BUTXT",
-        "ZBD1T"
-      ]
-    },
-    {
-      "name": "invoice-credit-block",
-      "object": "Customer",
-      "dataType": "Transactional Data",
-      "description": "Ensures invoices are not issued to customers with active credit blocks, preventing financial exposure and bypassed credit controls",
-      "tables": [
-        "KNA1",
-        "VBRK"
-      ],
-      "criticality": "Medium",
-      "industries": [
-        "Finance"
-      ],
-      "domain": "Customer Master",
-      "fields": [
-        "zSourceSystemID",
-        "zDomainSegment",
-        "KUNNR",
-        "NAME1",
-        "VBELN",
-        "FKART",
-        "FAKSD",
-        "VKORG",
-        "BUKRS",
-        "NETWR",
-        "WAERK",
-        "FKDAT"
-      ]
+      "dataType": "Master Data",
+      "source": "ACE Rules",
+      "fetch": "Retrieve customer payment terms (KNB1.ZTERM) for all active customers not flagged for deletion in KNA1 or KNB1.",
+      "check": "Mark any record where: KNB1.ZTERM indicates more favorable payment terms than the organization's defined master data standard",
+      "return": "Records where customer payment terms exceed standard thresholds, indicating unauthorized favorable terms requiring review and correction."
     }
   ]
 }

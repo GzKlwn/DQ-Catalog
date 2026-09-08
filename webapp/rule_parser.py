@@ -132,7 +132,7 @@ def _extract_fetch_check_return(description_body: str) -> dict[str, str]:
     out: dict[str, str] = {}
     for label in ("Fetch", "Check", "Return"):
         m = re.search(
-            rf"-\s*\*\*{label}\*\*\s*<br\s*/?>\s*(.*?)(?=\n\n-\s*\*\*|\Z)",
+            rf"-\s*\*\*{label}\*\*\s*<br\s*/?>\s*(.*?)(?=\n\n-\s*\*\*|\n##|\Z)",
             description_body,
             re.DOTALL,
         )
@@ -181,7 +181,7 @@ def parse(markdown_text: str) -> dict:
 
     rule_kv = _kv_table((find_section(sections, "Rule", 3) or {}).get("body", ""))
     impl_kv = _kv_table((find_section(sections, "Implementation", 3) or {}).get("body", ""))
-    desc_section = find_section(sections, "Description", 3) or {}
+    desc_section = find_section(sections, "Description", 2) or {}
     desc_body = desc_section.get("body", "")
 
     tables, fields = _extract_tables_and_fields(sections)
